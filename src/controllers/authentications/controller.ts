@@ -134,6 +134,7 @@ export const logoutController = async (req: AuthenticatedRequest, res: Response)
             await userService.updateUserRefreshToken(user.id, '');
         }
         res.clearCookie('jwtToken', { httpOnly: true, secure: true, sameSite: 'strict' });
+        res.clearCookie('u_id', { httpOnly: true, secure: true, sameSite: 'strict' });
         return res.status(200).json({ message: 'Logout successful' });
     } catch (error) {
         res.status(500).json({

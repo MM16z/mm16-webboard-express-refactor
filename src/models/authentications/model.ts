@@ -1,5 +1,5 @@
-export interface createUser {
+export type registerModel = {
     email: string;
     password: string;
     username: string;
-}
+};

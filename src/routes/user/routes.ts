@@ -1,10 +1,12 @@
 import { Router } from 'express';
-import { getUsers } from '../../controllers/user/controller';
+
+import { getAllUsersController, getUserByIdController } from '../../controllers/user/controller';
 
 const router = Router();
 
 // GET /api/user/
-router.get('/', getUsers);
+router.get('/', getAllUsersController);
+router.get('/get_user_by_id', getUserByIdController);
 
 // POST /api/user/
 

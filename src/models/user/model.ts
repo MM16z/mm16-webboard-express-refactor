@@ -1,8 +1,8 @@
-export interface User {
-    id: number;
+export type UserModel = {
+    id?: number;
     email: string;
     password: string;
     username: string;
-    create_at: Date;
-    refresh_token: string | null;
-}
+    create_at?: Date;
+    refresh_token?: string | null;
+};

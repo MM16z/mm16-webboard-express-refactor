@@ -1,15 +1,24 @@
 import { PrismaClient } from '@prisma/client';
-import { createUser } from '../../models/authentications/model';
+
+import { registerModel } from '../../models/authentications/model';
 
 const prisma = new PrismaClient();
 
-class authenticationService {
-    static async createUser(userData: createUser) {
-        const user = await prisma.user.create({
-            data: userData,
-        });
-        return user;
-    }
+export const authenticationService = {
+    register,
+    getUserByEmail,
+};
+
+async function register(userData: registerModel) {
+    const user = await prisma.user.create({
+        data: userData,
+    });
+    return user;
 }
 
-export default authenticationService;
+async function getUserByEmail(email: string) {
+    const user = await prisma.user.findUnique({
+        where: { email },
+    });
+    return user;
+}

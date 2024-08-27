@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "start": "node dist/server.js",
-        "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+        "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./src/server.ts",
+        "start:prod": "pm2 start dist/server.js --name mm16-webboard-express-refactor",
         "build": "tsc",
         "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "lint-staged": "lint-staged",
@@ -22,10 +23,18 @@
     "description": "",
     "dependencies": {
         "@prisma/client": "^5.18.0",
-        "express": "^4.19.2"
+        "@types/cors": "^2.8.17",
+        "@types/jsonwebtoken": "^9.0.6",
+        "bcrypt": "^5.1.1",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "eslint-plugin-simple-import-sort": "^12.1.1",
+        "express": "^4.19.2",
+        "jsonwebtoken": "^9.0.2"
     },
     "devDependencies": {
         "@eslint/js": "^8.57.0",
+        "@types/bcrypt": "^5.0.2",
         "@types/express": "^4.17.21",
         "@types/node": "^22.5.0",
         "@typescript-eslint/eslint-plugin": "^8.2.0",

@@ -9,7 +9,7 @@ export const homePageService = {
     deleteComment,
 };
 
-async function getAllHomePageData(currentUserId: number | null, offset: number) {
+async function getAllHomePageData(userId: number | null, offset: number) {
     const allPosts = await prisma.posts.findMany({
         select: {
             id: true,
@@ -30,9 +30,6 @@ async function getAllHomePageData(currentUserId: number | null, offset: number) 
                 select: {
                     user_id: true,
                 },
-                where: {
-                    user_id: currentUserId ?? undefined,
-                },
             },
             _count: {
                 select: {
@@ -49,7 +46,7 @@ async function getAllHomePageData(currentUserId: number | null, offset: number) 
 
     const combinedPosts = allPosts.map((post) => ({
         ...post,
-        isLiked: post.post_liked.length > 0,
+        isLiked: post.post_liked.some((like) => like.user_id === userId),
         post_liked_count: post._count.post_liked,
     }));
 

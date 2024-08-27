@@ -24,8 +24,10 @@ export const getUserByIdController = async (req: AuthenticatedRequest, res: Resp
     try {
         const user = await userService.getUserById(userId);
         if (user) {
+            res.cookie('u_id', user.id, { httpOnly: true });
             res.status(200).json(user);
         } else {
+            res.clearCookie('u_id');
             res.status(404).json({ message: 'User not found' });
         }
     } catch (error) {

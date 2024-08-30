@@ -6,6 +6,7 @@ import {
     getAllHomePageDataController,
     updatePostLikeController,
 } from '../../controllers/homepage/controller';
+import authMiddleware from '../../middlewares/authMiddleware';
 
 const router = Router();
 
@@ -13,8 +14,8 @@ const router = Router();
 router.get('/:offset', getAllHomePageDataController);
 
 // POST /api/home/
-router.post('/update_post_like', updatePostLikeController);
-router.post('/create_comment', createCommentController);
-router.post('/delete_comment', deleteCommentController);
+router.post('/update_post_like', authMiddleware, updatePostLikeController);
+router.post('/create_comment', authMiddleware, createCommentController);
+router.post('/delete_comment', authMiddleware, deleteCommentController);
 
 export default router;

@@ -1,7 +1,7 @@
 import { Response } from 'express';
 
-import { AuthenticatedRequest } from '../../middlewares/authMiddleware';
-import { userDashboardService } from '../../services/user-dashboard/service';
+import { AuthenticatedRequest } from '../../middlewares/authMiddleware.js';
+import { userDashboardService } from '../../services/user-dashboard/service.js';
 
 export const getUserPostsController = async (req: AuthenticatedRequest, res: Response) => {
     const userId = req.decoded?.id;

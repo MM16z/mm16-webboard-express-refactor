@@ -4,8 +4,8 @@ import {
     loginController,
     logoutController,
     registerController,
-} from '../../controllers/authentications/controller';
-import authMiddleware from '../../middlewares/authMiddleware';
+} from '../../controllers/authentications/controller.js';
+import authMiddleware from '../../middlewares/authMiddleware.js';
 
 const router = Router();
 

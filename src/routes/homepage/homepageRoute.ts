@@ -5,8 +5,8 @@ import {
     deleteCommentController,
     getAllHomePageDataController,
     updatePostLikeController,
-} from '../../controllers/homepage/controller';
-import authMiddleware from '../../middlewares/authMiddleware';
+} from '../../controllers/homepage/controller.js';
+import authMiddleware from '../../middlewares/authMiddleware.js';
 
 const router = Router();
 

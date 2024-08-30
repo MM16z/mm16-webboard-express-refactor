@@ -4,10 +4,10 @@ import dotenv from 'dotenv';
 import { Response } from 'express';
 import jwt from 'jsonwebtoken';
 
-import { AuthenticatedRequest } from '../../middlewares/authMiddleware';
-import { registerModel } from '../../models/authentications/model';
-import { authenticationService } from '../../services/authentications/service';
-import userService from '../../services/user/service';
+import { AuthenticatedRequest } from '../../middlewares/authMiddleware.js';
+import { registerModel } from '../../models/authentications/model.js';
+import { authenticationService } from '../../services/authentications/service.js';
+import userService from '../../services/user/service.js';
 
 dotenv.config();
 

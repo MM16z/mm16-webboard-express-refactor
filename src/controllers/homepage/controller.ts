@@ -1,7 +1,7 @@
 import { Response } from 'express';
 
-import { AuthenticatedRequest } from '../../middlewares/authMiddleware';
-import { homePageService } from '../../services/homepage/service';
+import { AuthenticatedRequest } from '../../middlewares/authMiddleware.js';
+import { homePageService } from '../../services/homepage/service.js';
 
 export const getAllHomePageDataController = async (req: AuthenticatedRequest, res: Response) => {
     const offset = req.params.offset ? Number(req.params.offset) : 0;

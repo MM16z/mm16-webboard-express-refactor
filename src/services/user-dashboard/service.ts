@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-import { PostModel } from '../../models/user-dashboard/model';
+import { PostModel } from '../../models/user-dashboard/model.js';
 
 const prisma = new PrismaClient();
 

@@ -1,7 +1,7 @@
 import { Response } from 'express';
 
-import { AuthenticatedRequest } from '../../middlewares/authMiddleware';
-import userService from '../../services/user/service';
+import { AuthenticatedRequest } from '../../middlewares/authMiddleware.js';
+import userService from '../../services/user/service.js';
 
 export const getAllUsersController = async (req: AuthenticatedRequest, res: Response) => {
     try {

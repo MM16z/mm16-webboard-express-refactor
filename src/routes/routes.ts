@@ -1,10 +1,10 @@
 import express from 'express';
 
-import authMiddleware from '../middlewares/authMiddleware';
-import authRoutes from './authentications/authenticationsRoute';
-import homeRoutes from './homepage/homepageRoute';
-import userRoutes from './user/userRoute';
-import userDashboardRoutes from './user-dashboard/userDashboardRoute';
+import authMiddleware from '../middlewares/authMiddleware.js';
+import authRoutes from './authentications/authenticationsRoute.js';
+import homeRoutes from './homepage/homepageRoute.js';
+import userRoutes from './user/userRoute.js';
+import userDashboardRoutes from './user-dashboard/userDashboardRoute.js';
 
 const router = express.Router();
 

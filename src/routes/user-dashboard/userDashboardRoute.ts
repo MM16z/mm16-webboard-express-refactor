@@ -5,7 +5,7 @@ import {
     deletePostController,
     getUserPostsController,
     updatePostController,
-} from '../../controllers/user-dashboard/controller';
+} from '../../controllers/user-dashboard/controller.js';
 
 const router = Router();
 

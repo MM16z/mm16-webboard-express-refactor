@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-import { registerModel } from '../../models/authentications/model';
+import { registerModel } from '../../models/authentications/model.js';
 
 const prisma = new PrismaClient();
 

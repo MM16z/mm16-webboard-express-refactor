@@ -5,6 +5,7 @@ import {
     logoutController,
     registerController,
 } from '../../controllers/authentications/controller';
+import authMiddleware from '../../middlewares/authMiddleware';
 
 const router = Router();
 
@@ -14,6 +15,6 @@ router.get('/');
 // POST /api/authentications/
 router.post('/register', registerController);
 router.post('/login', loginController);
-router.post('/logout', logoutController);
+router.post('/logout', authMiddleware, logoutController);
 
 export default router;

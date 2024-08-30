@@ -20,7 +20,7 @@ const authMiddleware = (req: AuthenticatedRequest, res: Response, next: NextFunc
             req.decoded = decoded;
         }
 
-        if (req.path.startsWith('/api/homepage') || req.path.startsWith('/api/auth')) {
+        if (req.path.startsWith('/api/homepage')) {
             return next();
         } else if (!refreshToken) {
             return res.status(401).json({ message: 'Unauthorized: No token provided' });

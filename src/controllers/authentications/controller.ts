@@ -108,7 +108,7 @@ export const loginController = async (req: AuthenticatedRequest, res: Response) 
         });
         res.cookie('u_auth_status', 'active', {
             httpOnly: false,
-            secure: true,
+            secure: false,
             maxAge: 24 * 60 * 60 * 1000,
             sameSite: 'none',
         });

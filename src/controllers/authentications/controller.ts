@@ -112,6 +112,12 @@ export const loginController = async (req: AuthenticatedRequest, res: Response) 
             maxAge: 24 * 60 * 60 * 1000,
             sameSite: 'none',
         });
+        res.cookie('u_id', user.id, {
+            httpOnly: true,
+            secure: true,
+            maxAge: 24 * 60 * 60 * 1000,
+            sameSite: 'none',
+        });
         res.status(200).json({ accessToken: token });
     } catch (error) {
         res.status(500).json({
@@ -139,9 +145,9 @@ export const logoutController = async (req: AuthenticatedRequest, res: Response)
         if (user.id) {
             await userService.updateUserRefreshToken(user.id, '');
         }
-        res.clearCookie('jwtToken', { httpOnly: true, secure: true, sameSite: 'strict' });
-        res.clearCookie('u_auth_status', { httpOnly: false, secure: false, sameSite: 'strict' });
-        res.clearCookie('u_id', { httpOnly: true, secure: true, sameSite: 'strict' });
+        res.clearCookie('jwtToken', { httpOnly: true, secure: true, sameSite: 'none' });
+        res.clearCookie('u_auth_status', { httpOnly: false, secure: true, sameSite: 'none' });
+        res.clearCookie('u_id', { httpOnly: true, secure: true, sameSite: 'none' });
         return res.status(200).json({ message: 'Logout successful' });
     } catch (error) {
         res.status(500).json({

@@ -104,13 +104,13 @@ export const loginController = async (req: AuthenticatedRequest, res: Response) 
             httpOnly: true,
             secure: true,
             maxAge: 24 * 60 * 60 * 1000,
-            sameSite: 'strict',
+            sameSite: 'none',
         });
         res.cookie('u_auth_status', 'active', {
             httpOnly: false,
             secure: true,
             maxAge: 24 * 60 * 60 * 1000,
-            sameSite: 'strict',
+            sameSite: 'none',
         });
         res.status(200).json({ accessToken: token });
     } catch (error) {
